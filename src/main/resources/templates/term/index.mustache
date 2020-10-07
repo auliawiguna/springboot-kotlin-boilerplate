@@ -1,0 +1,21 @@
+{{> /../header}}
+<h1>{{title}}</h1>
+<table class="table table-sm table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Slug</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#term}}
+        <tr>
+            <td>{{term_id}}</td>
+            <td>{{name}}</td>
+            <td>{{slug}}</td>
+        </tr>        
+        {{/term}}    
+    </tbody>
+</table>
+{{> /../footer}}

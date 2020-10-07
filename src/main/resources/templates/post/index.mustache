@@ -1,0 +1,27 @@
+{{> /../frontend/header}}
+
+
+
+
+<h1>{{title}}</h1>
+<table class="table table-sm table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Content</th>
+            <th>Author</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#post}}
+        <tr>
+            <td><a href="{{{base_url}}}/posts/{{ID}}">{{ID}}</a></td>
+            <td><a href="{{{base_url}}}/posts/{{ID}}/{{postTitle}}">{{postTitle}}</a></td>
+            <td>{{postContent}}</td>
+            <td>{{postAuthor.userNicename}}</td>
+        </tr>        
+        {{/post}}    
+    </tbody>
+</table>
+{{> /../frontend/footer}}
