@@ -29,8 +29,8 @@ open class CustomUserDetails: User, UserDetails {
     } 
 
     override fun getUsername(): String {
-        log.debug("super.userNicename " + super.userNicename)
-        return super.userNicename.toString()
+        log.debug("super.userNicename " + super.userLogin)
+        return super.userLogin.toString()
     } 
 
     override fun isEnabled(): Boolean {

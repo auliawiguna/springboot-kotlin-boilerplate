@@ -8,5 +8,5 @@ import javax.transaction.Transactional
 
 @Repository
 interface UserRepository : CrudRepository<User, Long> {
-    fun findByUserLogin(user_login: String)  : User?
+    fun findByUserLogin(user_login: String)  : User
 }
