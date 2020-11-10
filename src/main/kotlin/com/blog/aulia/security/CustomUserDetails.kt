@@ -24,6 +24,10 @@ open class CustomUserDetails: User, UserDetails {
         .collect(Collectors.toList())
     }
 
+    fun userId(): String {
+        return super.id.toString()  
+    }
+
     override fun getPassword(): String {
         return super.userPass.toString()
     } 

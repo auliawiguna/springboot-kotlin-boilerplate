@@ -28,7 +28,7 @@ open class User (
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null
+    val id: Long? = 0
 
 	@OneToMany(cascade = arrayOf(CascadeType.ALL), fetch = FetchType.EAGER)
 	var roles: MutableSet<Role> = HashSet()
