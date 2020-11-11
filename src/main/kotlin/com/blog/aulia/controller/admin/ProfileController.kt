@@ -35,12 +35,22 @@ class ProfileController (private val userRepository: UserRepository) {
     } 
 
     @PostMapping("/admin/profile")    
-    fun postProfile(profileRequest : ProfileRequest) : String {
+    fun postProfile(profileRequest : ProfileRequest, passwordEncoder: PasswordEncoderAndMatcherConfig) : String {
         var id = profileRequest.id
         
         var user =  userRepository.getOne(id!!)
         user.userNicename = profileRequest.name!!;
-        user.userEmail = userData.email;
+        if (profileRequest.email!="") {
+            user.userEmail = profileRequest.email!!;
+        }
+        if (profileRequest.password != "") {
+            if (profileRequest.password == profileRequest.password_confirm) {
+                var encodedPassword = passwordEncoder.passwordEncoderAndMatcher().encode(profileRequest.password)
+                user.userPass = encodedPassword
+            }
+        }
+        // model["password"] = passwordEncoder.passwordEncoderAndMatcher().encode("admin123")
+
         userRepository.save(user);        
         return "redirect:/admin/profile"
     } 
