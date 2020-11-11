@@ -19,7 +19,14 @@ gulp.task('css', async function () {
         './backend/css/lib/owl.theme.default.min.css',
         './backend/css/helper.css',
         './backend/css/style.css',
-        './backend/icons/font-awesome/css/font-awesome.min.css',
+        //Datatable
+        './backend/vendor/datatable/css/datatables.min.css',
+        //izitoast
+        './backend/vendor/izitoast/css/iziToast.min.css',
+        //select2
+        './backend/vendor/select2/css/select2.min.css',
+        //validation engine
+        './backend/vendor/validation-engine/css/validationEngine.jquery.css'
     ])
     .pipe(gulpMinifyCss({
         compatibility: 'ie11'
@@ -29,7 +36,13 @@ gulp.task('css', async function () {
 
     //copy fonts
     gulp.src('./backend/icons/font-awesome/fonts/*')
-    .pipe(gulp.dest('./dist/backend/css/icons/font-awesome/fonts'));
+    .pipe(gulp.dest('./dist/backend/icons/font-awesome/fonts'));
+
+    gulp.src('./backend/icons/font-awesome/fonts/*')
+    .pipe(gulp.dest('./dist/backend/fonts'));
+
+    gulp.src('./backend/icons/themify-icons/fonts/*')
+    .pipe(gulp.dest('./dist/backend/icons/themify-icons/fonts'));
 });
 
 gulp.task('js', async function () {
@@ -51,6 +64,18 @@ gulp.task('js', async function () {
             './backend/js/lib/calendar-2/pignose.init.js',
             './backend/js/lib/owl-carousel/owl.carousel.min.js',
             './backend/js/lib/owl-carousel/owl.carousel-init.js',
+            //Bootbox
+            './backend/vendor/bootbox/js/bootbox.all.min.js',
+            //Datatable
+            './backend/vendor/datatable/js/datatables.min.js',
+            //izitoast
+            './backend/vendor/izitoast/js/iziToast.min.js',
+            //select2
+            './backend/vendor/select2/js/select2.full.min.js',
+            //validation engine
+            './backend/vendor/validation-engine/js/jquery.validationEngine.js',
+            './backend/vendor/validation-engine/js/jquery.validationEngine-en.js',
+            './backend/js/helper.js',
             './backend/js/scripts.js',
             './backend/js/custom.min.js',
             './backend/content/*.js',
