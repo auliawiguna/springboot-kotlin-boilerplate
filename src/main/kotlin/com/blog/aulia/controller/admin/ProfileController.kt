@@ -31,7 +31,13 @@ class ProfileController (private val userRepository: UserRepository) {
         model["name"] = auth.getName()
         model["title"] = "My Profile"
 
-        model["flashMessage"] = model.asMap().get("flashMessage").toString()
+        var flashMessage = model.asMap().get("flashMessage").toString()
+
+        if (flashMessage != null && !flashMessage.isEmpty()) {
+            model["flashMessage"] = model.asMap().get("flashMessage").toString()
+        } else {
+            model["flashMessage"] = ""
+        }
         // model["password"] = passwordEncoder.passwordEncoderAndMatcher().encode("admin123")
         model["base_url"] = String.format("%s://%s:%d",request.getScheme(),  request.getServerName(), request.getServerPort());
         return "backend/profile/index"

@@ -25,6 +25,12 @@ private fun getOrdinal(n: Int) = when {
 	else -> "${n}th"
 }
 
+fun isNullOrEmpty(str: String?): Boolean {
+    if (str != null && !str.isEmpty())
+        return false
+    return true
+}
+
 fun String.toSlug() = toLowerCase()
 		.replace("\n", " ")
 		.replace("[^a-z\\d\\s]".toRegex(), " ")
